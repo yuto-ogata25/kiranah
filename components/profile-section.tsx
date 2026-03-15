@@ -38,15 +38,14 @@ export function ProfileSection() {
             </div>
             <Separator className="mb-4 md:w-16" />
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              「お客様一人ひとりのお悩みに寄り添い、心と身体の両面からケアすることを大切にしています。」
+              「青森市浪岡の閑静な住宅街の一室にてひっそりと営業しております。」
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              長年にわたりリラクゼーション業界で経験を積み、ドライヘッドスパ・アーユルヴェーダ・リンパマッサージの技術を習得。
+              リラクゼーション業界で経験を積み、技術を習得。
               「来てよかった」と感じていただける施術を目指し、完全個室のプライベートサロンをオープンしました。
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              日々の忙しさから解放される、あなただけの特別な時間をお届けします。
-              どうぞお気軽にお越しください。
+              皆様に心地よく過ごしていただけたらと思います。宜しくお願いいたします！
             </p>
           </div>
         </div>

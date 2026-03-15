@@ -26,33 +26,33 @@ import {
 const MENU_ITEMS = [
   {
     id: "headspa",
-    name: "極上ドライヘッドスパ",
-    duration: "60分",
-    price: "¥6,600",
+    name: "選べるセットコース",
+    duration: "90分",
+    price: "¥10,000",
     badge: "人気 No.1",
     badgeVariant: "default" as const,
     description:
-      "頭皮のツボを丁寧にほぐし、深いリラクゼーションへ導きます。眼精疲労や不眠にお悩みの方におすすめです。",
+      "ボディケア整体をメインに、その日の体調に合わせてお好きなコースを組み合わせできます。(フットバスサービス付)",
   },
   {
     id: "lymph",
-    name: "全身リンパマッサージ",
-    duration: "90分",
-    price: "¥9,900",
+    name: "選べるセットコース",
+    duration: "120分",
+    price: "¥13,000",
     badge: "おすすめ",
     badgeVariant: "secondary" as const,
     description:
-      "全身のリンパの流れを整え、むくみや疲れをスッキリ解消。デトックス効果で内側から輝く身体へ。",
+      "ボディケア整体をメインに、その日の体調に合わせてお好きなコースを組み合わせできます。(フットバスサービス付)",
   },
   {
     id: "ayurveda",
-    name: "アーユルヴェーダ・オイルトリートメント",
-    duration: "120分",
-    price: "¥13,200",
+    name: "選べるセットコース",
+    duration: "180分",
+    price: "¥20,000",
     badge: null,
     badgeVariant: "secondary" as const,
     description:
-      "インド伝統のアーユルヴェーダに基づいた、温かいオイルを使ったトリートメント。心身ともに深い癒やしを。",
+      "ボディケア整体をメインに、その日の体調に合わせてお好きなコースを組み合わせできます。(フットバスサービス付)",
   },
 ]
 
@@ -69,13 +69,13 @@ const TIME_SLOTS = [
 const COUPONS = [
   {
     id: "first",
-    label: "初回限定 20%OFF",
-    description: "初めてご来店のお客様",
+    label: "【全身リフレッシュ♪】新規限定 ボディケア整体 60分 6,600円→4,000円",
+    description: "利用条件：ご新規様・他券併用不可",
   },
   {
     id: "line",
-    label: "LINE友だち追加 500円OFF",
-    description: "公式LINEアカウントをお友だち追加済みの方",
+    label: "【贅沢アロマ体験】アロマオイルトリートメント 60分 10,000円→7,000円",
+    description: "利用条件:女性限定メニュー・他券併用不可",
   },
   {
     id: "none",
@@ -400,7 +400,7 @@ export function BookingWidget() {
                     key={item.id}
                     type="button"
                     onClick={() => setSelectedMenu(item.id)}
-                    className={`w-full rounded-xl border p-5 md:p-4 text-left transition-all duration-200 min-h-[120px] active:scale-[0.98] ${
+                    className={`w-full rounded-xl border p-5 md:p-4 text-left transition-all duration-200 min-h-30 active:scale-[0.98] ${
                       isSelected
                         ? "border-primary bg-primary/5 ring-2 ring-primary/20 shadow-sm"
                         : "border-border bg-card hover:border-primary/30 hover:bg-muted/50"
@@ -534,7 +534,7 @@ export function BookingWidget() {
                     key={coupon.id}
                     type="button"
                     onClick={() => setSelectedCoupon(coupon.id)}
-                    className={`w-full rounded-xl border p-5 md:p-4 text-left transition-all duration-200 min-h-[60px] active:scale-[0.98] ${
+                    className={`w-full rounded-xl border p-5 md:p-4 text-left transition-all duration-200 min-h-15 active:scale-[0.98] ${
                       isSelected
                         ? "border-primary bg-primary/5 ring-2 ring-primary/20 shadow-sm"
                         : "border-border bg-card hover:border-primary/30 hover:bg-muted/50"
