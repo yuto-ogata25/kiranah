@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import { signIn, signOut, useSession } from "next-auth/react" 
 import { ja } from "date-fns/locale"
 import { Calendar } from "@/components/ui/calendar"
 import { Button } from "@/components/ui/button"
@@ -213,7 +214,8 @@ function ProgressBar({ currentStep }: { currentStep: number }) {
 /* ------------------------------------------------------------------ */
 
 export function BookingWidget() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const { data: session } = useSession()
+  const isLoggedIn = !!session?.user
   const [step, setStep] = useState(0)
   const [selectedMenu, setSelectedMenu] = useState<string | null>(null)
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
@@ -229,7 +231,6 @@ export function BookingWidget() {
   const couponData = COUPONS.find((c) => c.id === selectedCoupon)
 
   const reset = useCallback(() => {
-    setIsLoggedIn(false)
     setStep(0)
     setSelectedMenu(null)
     setSelectedDate(undefined)
@@ -239,9 +240,9 @@ export function BookingWidget() {
     setIsDone(false)
   }, [])
 
-  function handleLogin() {
-    setIsLoggedIn(true)
-  }
+  async function handleLogin() {
+  await signIn("google")
+ }
 
   function handleConfirm() {
     setIsSending(true)
@@ -330,7 +331,7 @@ export function BookingWidget() {
           <Button
             variant="outline"
             className="mt-6 rounded-full h-12 md:h-10 px-6 text-base md:text-sm"
-            onClick={reset}
+            onClick={() => { signOut(); reset() }}
           >
             <LogOut className="size-5 md:size-4" />
             ログアウト
@@ -363,10 +364,10 @@ export function BookingWidget() {
             </div>
             <div>
               <p className="text-sm md:text-xs font-medium text-card-foreground">
-                ゲストユーザー
+                 {session?.user?.name ?? "ゲストユーザー"}
               </p>
               <p className="text-xs md:text-[10px] text-muted-foreground">
-                guest@example.com
+                 {session?.user?.email ?? ""} 
               </p>
             </div>
           </div>
@@ -374,7 +375,7 @@ export function BookingWidget() {
             variant="ghost"
             size="sm"
             className="text-sm md:text-xs text-muted-foreground h-10 md:h-7 px-3 md:px-2"
-            onClick={reset}
+            onClick={() => { signOut(); reset() }}
           >
             <LogOut className="size-4 md:size-3" />
             ログアウト

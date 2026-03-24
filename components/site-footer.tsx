@@ -13,7 +13,7 @@ export function SiteFooter() {
           </p>
           <Separator className="mx-auto w-12 bg-primary-foreground/20 mb-4" />
           <p className="text-xs opacity-60 leading-relaxed">
-            青森県青森市 ｜ 営業時間 10:00〜20:00（不定休）
+            青森県青森市 ｜ 営業時間 10:00〜18:00（定休日: 月・水・金）
           </p>
         </div>
 
