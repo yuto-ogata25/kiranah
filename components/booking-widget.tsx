@@ -18,6 +18,7 @@ import {
   CalendarDays,
   CreditCard,
   Mail,
+  User,
 } from "lucide-react"
 
 /* ------------------------------------------------------------------ */
@@ -328,14 +329,23 @@ export function BookingWidget() {
           <p className="text-xs md:text-[11px] text-muted-foreground mt-5">
             ※ これはデモ予約です。実際の予約は確定されていません。
           </p>
-          <Button
-            variant="outline"
-            className="mt-6 rounded-full h-12 md:h-10 px-6 text-base md:text-sm"
-            onClick={() => { signOut(); reset() }}
-          >
-            <LogOut className="size-5 md:size-4" />
-            ログアウト
-          </Button>
+          <div className="mt-6 flex flex-col gap-3">
+            <Button
+              className="rounded-full h-12 md:h-10 text-base md:text-sm"
+              onClick={() => { window.location.href = "/mypage" }}
+            >
+              <User className="size-5 md:size-4" />
+              マイページで予約を確認する
+            </Button>
+            <Button
+              variant="outline"
+              className="rounded-full h-12 md:h-10 px-6 text-base md:text-sm"
+              onClick={() => { signOut(); reset() }}
+            >
+              <LogOut className="size-5 md:size-4" />
+              ログアウト
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -371,15 +381,26 @@ export function BookingWidget() {
               </p>
             </div>
           </div>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-sm md:text-xs text-muted-foreground h-10 md:h-7 px-3 md:px-2"
-            onClick={() => { signOut(); reset() }}
-          >
-            <LogOut className="size-4 md:size-3" />
-            ログアウト
-          </Button>
+          <div className="flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-sm md:text-xs text-muted-foreground h-10 md:h-7 px-3 md:px-2"
+              onClick={() => { window.location.href = "/mypage" }}
+            >
+              <User className="size-4 md:size-3" />
+              マイページ
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-sm md:text-xs text-muted-foreground h-10 md:h-7 px-3 md:px-2"
+              onClick={() => { signOut(); reset() }}
+            >
+              <LogOut className="size-4 md:size-3" />
+              ログアウト
+            </Button>
+          </div>
         </div>
 
         <Separator className="mb-6" />
